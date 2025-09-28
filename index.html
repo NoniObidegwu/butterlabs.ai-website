@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butter Labs - Accent-Aware Conversational AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h2>Butter Labs</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#demo" class="nav-link">Demo</a></li>
+                <li><a href="#architecture" class="nav-link">Architecture</a></li>
+                <li><a href="#flows" class="nav-link">User Flows</a></li>
+                <li><a href="#api" class="nav-link">API Docs</a></li>
+                <li><a href="#analytics" class="nav-link">Analytics</a></li>
+                <li><a href="#getting-started" class="nav-link">Get Started</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">☰</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Landing Page Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Butter Labs</h1>
+                        <p class="hero-subtitle">The world's first accent-aware conversational AI</p>
+                        <p class="hero-description">To give every European voice and every voice in Europe and the UK its value to make them feel seen, included, heard</p>
+                        
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number">98%</span>
+                                <span class="stat-label">Accuracy</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">14</span>
+                                <span class="stat-label">Regional Accents</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">£30B</span>
+                                <span class="stat-label">Annual Savings</span>
+                            </div>
+                        </div>
+
+                        <div class="hero-actions">
+                            <button class="btn btn--primary btn--lg" id="tryDemoBtn">Try Interactive Demo</button>
+                            <button class="btn btn--outline btn--lg" id="learnMoreBtn">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-section">
+                <div class="container">
+                    <h2>Why Butter Labs Outperforms Competition</h2>
+                    <div class="comparison-highlight">
+                        <div class="comparison-card">
+                            <h3>Butter Labs</h3>
+                            <div class="accuracy-bar">
+                                <div class="accuracy-fill butter-labs" data-accuracy="98"></div>
+                            </div>
+                            <span class="accuracy-label">98% Accuracy</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="comparison-card">
+                            <h3>Competitors</h3>
+                            <div class="accuracy-bar">
+                                <div class="accuracy-fill competitor" data-accuracy="76"></div>
+                            </div>
+                            <span class="accuracy-label">76% Accuracy</span>
+                        </div>
+                    </div>
+
+                    <div class="target-markets">
+                        <h3>Trusted by Leading Industries</h3>
+                        <div class="market-grid">
+                            <div class="market-card">Utilities</div>
+                            <div class="market-card">Telecom</div>
+                            <div class="market-card">Healthcare</div>
+                            <div class="market-card">Financial Services</div>
+                            <div class="market-card">Public Sector</div>
+                        </div>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Real-time Accent Recognition</h3>
+                            <p>Instantly identifies and adapts to 14 UK regional accents</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔒</div>
+                            <h3>Privacy-first Architecture</h3>
+                            <p>Enterprise-grade security with data protection compliance</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Seamless Integration</h3>
+                            <p>Easy to implement with existing call center infrastructure</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💰</div>
+                            <h3>Cost-effective Scaling</h3>
+                            <p>Handle 7 billion customer calls with significant cost savings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo Section -->
+        <section id="demo" class="section">
+            <div class="container">
+                <h2>Interactive Demo</h2>
+                <p class="section-subtitle">Experience Butter Labs' accent recognition in action</p>
+
+                <div class="demo-interface">
+                    <div class="demo-controls">
+                        <div class="form-group">
+                            <label class="form-label">Select Accent:</label>
+                            <select class="form-control" id="accentSelect">
+                                <option value="">Choose an accent...</option>
+                                <option value="scottish">Scottish</option>
+                                <option value="welsh">Welsh</option>
+                                <option value="northern-irish">Northern Irish</option>
+                                <option value="geordie">Geordie</option>
+                                <option value="yorkshire">Yorkshire</option>
+                                <option value="cornish">Cornish</option>
+                                <option value="brummie">Brummie</option>
+                                <option value="scouse">Scouse</option>
+                                <option value="devon">Devon</option>
+                                <option value="norfolk">Norfolk</option>
+                                <option value="cockney">Cockney</option>
+                                <option value="rp">Received Pronunciation</option>
+                                <option value="west-country">West Country</option>
+                                <option value="midlands">Midlands</option>
+                            </select>
+                        </div>
+                        <button class="btn btn--primary" id="startDemo">Start Recognition</button>
+                    </div>
+
+                    <div class="demo-visualization">
+                        <div class="waveform-container">
+                            <div class="waveform-label">Audio Input</div>
+                            <div class="waveform" id="inputWaveform">
+                                <div class="wave-bar" style="height: 20%"></div>
+                                <div class="wave-bar" style="height: 45%"></div>
+                                <div class="wave-bar" style="height: 80%"></div>
+                                <div class="wave-bar" style="height: 60%"></div>
+                                <div class="wave-bar" style="height: 90%"></div>
+                                <div class="wave-bar" style="height: 30%"></div>
+                                <div class="wave-bar" style="height: 70%"></div>
+                                <div class="wave-bar" style="height: 40%"></div>
+                                <div class="wave-bar" style="height: 85%"></div>
+                                <div class="wave-bar" style="height: 25%"></div>
+                            </div>
+                        </div>
+
+                        <div class="processing-indicator">
+                            <div class="processing-spinner"></div>
+                            <span>Processing...</span>
+                        </div>
+
+                        <div class="waveform-container">
+                            <div class="waveform-label">Processed Output</div>
+                            <div class="waveform" id="outputWaveform">
+                                <div class="wave-bar" style="height: 25%"></div>
+                                <div class="wave-bar" style="height: 50%"></div>
+                                <div class="wave-bar" style="height: 75%"></div>
+                                <div class="wave-bar" style="height: 60%"></div>
+                                <div class="wave-bar" style="height: 80%"></div>
+                                <div class="wave-bar" style="height: 35%"></div>
+                                <div class="wave-bar" style="height: 70%"></div>
+                                <div class="wave-bar" style="height: 45%"></div>
+                                <div class="wave-bar" style="height: 85%"></div>
+                                <div class="wave-bar" style="height: 30%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-results">
+                        <div class="result-card">
+                            <h3>Recognition Results</h3>
+                            <div class="result-item">
+                                <span class="result-label">Detected Accent:</span>
+                                <span class="result-value" id="detectedAccent">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Confidence:</span>
+                                <span class="result-value" id="confidenceScore">-</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Processing Time:</span>
+                                <span class="result-value" id="processingTime">-</span>
+                            </div>
+                        </div>
+
+                        <div class="conversation-example">
+                            <h3>Sample Conversation</h3>
+                            <div class="conversation-messages" id="conversationMessages">
+                                <div class="message user">
+                                    <span class="message-text">Hello, I need help with my account</span>
+                                    <span class="message-accent">(Scottish accent detected)</span>
+                                </div>
+                                <div class="message ai">
+                                    <span class="message-text">Hello! I'd be happy to help you with your account. Can you please provide your account number?</span>
+                                    <span class="message-note">(Response adapted for Scottish accent patterns)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Architecture Section -->
+        <section id="architecture" class="section">
+            <div class="container">
+                <h2>Technical Architecture</h2>
+                <p class="section-subtitle">Built for enterprise-grade performance and scalability</p>
+
+                <div class="demo-interface">
+                    <h3>Butter Labs Technical Architecture</h3>
+                    <div style="background: var(--color-bg-1); padding: var(--space-32); border-radius: var(--radius-lg); text-align: center; margin-bottom: var(--space-32);">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-24); margin-bottom: var(--space-24);">
+                            <div style="background: var(--color-primary); color: var(--color-btn-primary-text); padding: var(--space-16); border-radius: var(--radius-base);">
+                                <strong>Accent Recognition Engine</strong><br>
+                                <small>98% Accuracy</small>
+                            </div>
+                            <div style="background: var(--color-secondary); padding: var(--space-16); border-radius: var(--radius-base);">
+                                <strong>Natural Language Understanding</strong><br>
+                                <small>Multi-dialect NLU</small>
+                            </div>
+                            <div style="background: var(--color-bg-3); padding: var(--space-16); border-radius: var(--radius-base);">
+                                <strong>Dialogue Management</strong><br>
+                                <small>Context-aware responses</small>
+                            </div>
+                            <div style="background: var(--color-bg-6); padding: var(--space-16); border-radius: var(--radius-base);">
+                                <strong>Voice Processing Pipeline</strong><br>
+                                <small>Real-time processing</small>
+                            </div>
+                        </div>
+                        <p style="margin: 0; color: var(--color-text-secondary);">Enterprise-grade architecture with 99.9% uptime and < 100ms response time</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Flows Section -->
+        <section id="flows" class="section">
+            <div class="container">
+                <h2>User Flows</h2>
+                <p class="section-subtitle">Understand how Butter Labs integrates into your workflow</p>
+
+                <div class="demo-interface">
+                    <h3>Customer Journey with Butter Labs</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-24);">
+                        <div style="background: var(--color-bg-1); padding: var(--space-20); border-radius: var(--radius-base); text-align: center;">
+                            <div style="width: 40px; height: 40px; background: var(--color-primary); color: var(--color-btn-primary-text); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-12); font-weight: bold;">1</div>
+                            <h4>Initial Contact</h4>
+                            <p style="margin: 0; color: var(--color-text-secondary);">Customer calls with natural accent</p>
+                        </div>
+                        <div style="background: var(--color-bg-2); padding: var(--space-20); border-radius: var(--radius-base); text-align: center;">
+                            <div style="width: 40px; height: 40px; background: var(--color-primary); color: var(--color-btn-primary-text); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-12); font-weight: bold;">2</div>
+                            <h4>Accent Detection</h4>
+                            <p style="margin: 0; color: var(--color-text-secondary);">Instant recognition of regional patterns</p>
+                        </div>
+                        <div style="background: var(--color-bg-3); padding: var(--space-20); border-radius: var(--radius-base); text-align: center;">
+                            <div style="width: 40px; height: 40px; background: var(--color-primary); color: var(--color-btn-primary-text); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-12); font-weight: bold;">3</div>
+                            <h4>Adaptive Processing</h4>
+                            <p style="margin: 0; color: var(--color-text-secondary);">AI adjusts for optimal understanding</p>
+                        </div>
+                        <div style="background: var(--color-bg-4); padding: var(--space-20); border-radius: var(--radius-base); text-align: center;">
+                            <div style="width: 40px; height: 40px; background: var(--color-primary); color: var(--color-btn-primary-text); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-12); font-weight: bold;">4</div>
+                            <h4>Natural Conversation</h4>
+                            <p style="margin: 0; color: var(--color-text-secondary);">Seamless accent-aware dialogue</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Documentation Section -->
+        <section id="api" class="section">
+            <div class="container">
+                <h2>API Documentation</h2>
+                <p class="section-subtitle">Integrate Butter Labs into your applications</p>
+
+                <div class="demo-interface">
+                    <h3>REST API & WebSocket Integration</h3>
+                    <p>Our comprehensive API allows you to integrate Butter Labs' accent-aware conversational capabilities into any application.</p>
+                    
+                    <div style="background: var(--color-bg-1); padding: var(--space-16); border-radius: var(--radius-base); margin-bottom: var(--space-24);">
+                        <h4>Base URL</h4>
+                        <code>https://api.butterlabs.ai/v1</code>
+                    </div>
+
+                    <div style="display: grid; gap: var(--space-24);">
+                        <div style="background: var(--color-surface); border: 1px solid var(--color-card-border); border-radius: var(--radius-lg); overflow: hidden;">
+                            <div style="background: var(--color-bg-5); padding: var(--space-16); display: flex; align-items: center; gap: var(--space-12);">
+                                <span style="background: var(--color-bg-4); padding: var(--space-4) var(--space-8); border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: bold; text-transform: uppercase;">POST</span>
+                                <code>/api/v1/speech/analyze</code>
+                            </div>
+                            <div style="padding: var(--space-20);">
+                                <p>Analyze speech input and detect accent</p>
+                                <div style="margin: var(--space-16) 0;">
+                                    <h5 style="margin-bottom: var(--space-8); color: var(--color-primary); font-size: var(--font-size-sm);">Request Example:</h5>
+                                    <pre style="background: var(--color-secondary); padding: var(--space-12); border-radius: var(--radius-sm); overflow-x: auto;"><code>{
+  "audio_data": "base64_encoded_audio",
+  "format": "wav",
+  "sample_rate": 16000
+}</code></pre>
+                                </div>
+                                <div style="margin: var(--space-16) 0;">
+                                    <h5 style="margin-bottom: var(--space-8); color: var(--color-primary); font-size: var(--font-size-sm);">Response Example:</h5>
+                                    <pre style="background: var(--color-secondary); padding: var(--space-12); border-radius: var(--radius-sm); overflow-x: auto;"><code>{
+  "accent": "scottish",
+  "confidence": 0.96,
+  "text": "Hello, I need help with my account",
+  "processing_time_ms": 85
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--color-surface); border: 1px solid var(--color-card-border); border-radius: var(--radius-lg); overflow: hidden;">
+                            <div style="background: var(--color-bg-3); padding: var(--space-16); display: flex; align-items: center; gap: var(--space-12);">
+                                <span style="background: var(--color-bg-3); padding: var(--space-4) var(--space-8); border-radius: var(--radius-sm); font-size: var(--font-size-xs); font-weight: bold; text-transform: uppercase;">GET</span>
+                                <code>/api/v1/accents/supported</code>
+                            </div>
+                            <div style="padding: var(--space-20);">
+                                <p>Get list of supported accents</p>
+                                <div style="margin: var(--space-16) 0;">
+                                    <h5 style="margin-bottom: var(--space-8); color: var(--color-primary); font-size: var(--font-size-sm);">Response Example:</h5>
+                                    <pre style="background: var(--color-secondary); padding: var(--space-12); border-radius: var(--radius-sm); overflow-x: auto;"><code>{
+  "accents": [
+    "scottish", "welsh", "northern_irish",
+    "geordie", "yorkshire", "cornish",
+    "brummie", "scouse", "devon",
+    "norfolk", "cockney", "rp",
+    "west_country", "midlands"
+  ],
+  "total_count": 14
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Analytics Section -->
+        <section id="analytics" class="section">
+            <div class="container">
+                <h2>Performance Analytics</h2>
+                <p class="section-subtitle">Real-time insights and comprehensive metrics</p>
+
+                <div class="demo-interface">
+                    <h3>Real-time Metrics Dashboard</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-20); margin-bottom: var(--space-32);">
+                        <div style="background: var(--color-bg-1); border: 1px solid var(--color-card-border); border-radius: var(--radius-base); padding: var(--space-20); text-align: center;">
+                            <h4 style="color: var(--color-text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--space-8);">Active Calls</h4>
+                            <div style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-4);">2,847</div>
+                            <div style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-success);">↑ 12%</div>
+                        </div>
+                        <div style="background: var(--color-bg-2); border: 1px solid var(--color-card-border); border-radius: var(--radius-base); padding: var(--space-20); text-align: center;">
+                            <h4 style="color: var(--color-text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--space-8);">Average Accuracy</h4>
+                            <div style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-4);">98.2%</div>
+                            <div style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-success);">↑ 0.3%</div>
+                        </div>
+                        <div style="background: var(--color-bg-3); border: 1px solid var(--color-card-border); border-radius: var(--radius-base); padding: var(--space-20); text-align: center;">
+                            <h4 style="color: var(--color-text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--space-8);">Response Time</h4>
+                            <div style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-4);">89ms</div>
+                            <div style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-success);">↓ 5ms</div>
+                        </div>
+                        <div style="background: var(--color-bg-4); border: 1px solid var(--color-card-border); border-radius: var(--radius-base); padding: var(--space-20); text-align: center;">
+                            <h4 style="color: var(--color-text-secondary); font-size: var(--font-size-sm); margin-bottom: var(--space-8);">Cost Savings</h4>
+                            <div style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-4);">£127K</div>
+                            <div style="font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-success);">↑ £23K</div>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--color-bg-1); border-radius: var(--radius-base); padding: var(--space-24);">
+                        <h4 style="margin-bottom: var(--space-16); color: var(--color-primary);">Accent Distribution (Last 24h)</h4>
+                        <div style="display: flex; flex-direction: column; gap: var(--space-12);">
+                            <div style="display: flex; align-items: center; gap: var(--space-12);">
+                                <span style="min-width: 120px; font-size: var(--font-size-sm); color: var(--color-text-secondary);">Scottish</span>
+                                <div style="flex: 1; height: 20px; background: var(--color-secondary); border-radius: var(--radius-sm); overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(90deg, var(--color-primary), var(--color-teal-300)); border-radius: var(--radius-sm); width: 18%;"></div>
+                                </div>
+                                <span style="min-width: 40px; text-align: right; font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-primary);">18%</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--space-12);">
+                                <span style="min-width: 120px; font-size: var(--font-size-sm); color: var(--color-text-secondary);">Yorkshire</span>
+                                <div style="flex: 1; height: 20px; background: var(--color-secondary); border-radius: var(--radius-sm); overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(90deg, var(--color-primary), var(--color-teal-300)); border-radius: var(--radius-sm); width: 15%;"></div>
+                                </div>
+                                <span style="min-width: 40px; text-align: right; font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-primary);">15%</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--space-12);">
+                                <span style="min-width: 120px; font-size: var(--font-size-sm); color: var(--color-text-secondary);">Geordie</span>
+                                <div style="flex: 1; height: 20px; background: var(--color-secondary); border-radius: var(--radius-sm); overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(90deg, var(--color-primary), var(--color-teal-300)); border-radius: var(--radius-sm); width: 12%;"></div>
+                                </div>
+                                <span style="min-width: 40px; text-align: right; font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-primary);">12%</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--space-12);">
+                                <span style="min-width: 120px; font-size: var(--font-size-sm); color: var(--color-text-secondary);">Other</span>
+                                <div style="flex: 1; height: 20px; background: var(--color-secondary); border-radius: var(--radius-sm); overflow: hidden;">
+                                    <div style="height: 100%; background: linear-gradient(90deg, var(--color-primary), var(--color-teal-300)); border-radius: var(--radius-sm); width: 55%;"></div>
+                                </div>
+                                <span style="min-width: 40px; text-align: right; font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); color: var(--color-primary);">55%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Getting Started Section -->
+        <section id="getting-started" class="section">
+            <div class="container">
+                <h2>Getting Started</h2>
+                <p class="section-subtitle">Quick setup and integration guide</p>
+
+                <div style="display: flex; flex-direction: column; gap: var(--space-32);">
+                    <div style="display: flex; gap: var(--space-24); align-items: flex-start;">
+                        <div style="width: 60px; height: 60px; background: var(--color-primary); color: var(--color-btn-primary-text); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); flex-shrink: 0;">1</div>
+                        <div style="flex: 1;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-12);">Sign Up & API Key</h3>
+                            <p>Create your Butter Labs account and obtain your API key</p>
+                            <div style="background: var(--color-surface); border: 1px solid var(--color-card-border); border-radius: var(--radius-base); padding: var(--space-16); margin-top: var(--space-16);">
+                                <code>curl -X POST https://api.butterlabs.ai/v1/auth/register</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: var(--space-24); align-items: flex-start;">
+                        <div style="width: 60px; height: 60px; background: var(--color-primary); color: var(--color-btn-primary-text); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); flex-shrink: 0;">2</div>
+                        <div style="flex: 1;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-12);">Install SDK</h3>
+                            <p>Choose your preferred programming language and install our SDK</p>
+                            <div style="background: var(--color-surface); border: 1px solid var(--color-card-border); border-radius: var(--radius-base); padding: var(--space-16); margin-top: var(--space-16);">
+                                <code>npm install @butterlabs/ai-sdk</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: var(--space-24); align-items: flex-start;">
+                        <div style="width: 60px; height: 60px; background: var(--color-primary); color: var(--color-btn-primary-text); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xl); font-weight: var(--font-weight-bold); flex-shrink: 0;">3</div>
+                        <div style="flex: 1;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--space-12);">Configure & Test</h3>
+                            <p>Initialize the client and run your first accent recognition test</p>
+                            <div style="background: var(--color-surface); border: 1px solid var(--color-card-border); border-radius: var(--radius-base); padding: var(--space-16); margin-top: var(--space-16);">
+                                <code>const client = new ButterLabs({<br>&nbsp;&nbsp;apiKey: 'your-api-key'<br>});<br><br>const result = await client.speech.analyze(audioData);</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Butter Labs</h3>
+                    <p class="footer-tagline">Making every voice heard and valued</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#demo">Demo</a></li>
+                            <li><a href="#architecture">Architecture</a></li>
+                            <li><a href="#api">API Docs</a></li>
+                            <li><a href="#analytics">Analytics</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#getting-started">Getting Started</a></li>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Status</a></li>
+                            <li><a href="#">Security</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Butter Labs. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">GDPR</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
