@@ -82,6 +82,10 @@
   --color-warning-rgb: 214, 158, 46;
   --color-info-rgb: var(--color-logo-brown-rgb);
 
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
   /* Typography */
   --font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -185,7 +189,7 @@ html {
   font-size: var(--font-size-base);
   font-family: var(--font-family-base);
   line-height: var(--line-height-normal);
-  color: var(--color-text);
+  color: var(--color-dark-chocolate);
   background-color: var(--color-cream-bg);
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
@@ -196,6 +200,8 @@ body {
   padding: 0;
   overflow-x: hidden;
   background-color: var(--color-cream-bg);
+  font-family: var(--font-family-base);
+  color: var(--color-dark-chocolate);
 }
 
 *, *::before, *::after {
@@ -207,19 +213,40 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-tight);
-  color: var(--color-text);
+  color: var(--color-dark-chocolate);
   letter-spacing: var(--letter-spacing-tight);
+  font-family: var(--font-family-base);
 }
 
-h1 { font-size: var(--font-size-4xl); }
-h2 { font-size: var(--font-size-3xl); }
-h3 { font-size: var(--font-size-2xl); }
-h4 { font-size: var(--font-size-xl); }
-h5 { font-size: var(--font-size-lg); }
-h6 { font-size: var(--font-size-md); }
+h1 { 
+  font-size: var(--font-size-4xl); 
+  color: var(--color-dark-chocolate);
+}
+h2 { 
+  font-size: var(--font-size-3xl); 
+  color: var(--color-dark-chocolate);
+}
+h3 { 
+  font-size: var(--font-size-2xl); 
+  color: var(--color-logo-brown);
+}
+h4 { 
+  font-size: var(--font-size-xl); 
+  color: var(--color-logo-brown);
+}
+h5 { 
+  font-size: var(--font-size-lg); 
+  color: var(--color-dark-chocolate);
+}
+h6 { 
+  font-size: var(--font-size-md); 
+  color: var(--color-dark-chocolate);
+}
 
 p {
   margin: 0 0 var(--space-16) 0;
+  color: var(--color-dark-chocolate);
+  font-family: var(--font-family-base);
 }
 
 a {
