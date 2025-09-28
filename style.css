@@ -186,7 +186,7 @@ html {
   font-family: var(--font-family-base);
   line-height: var(--line-height-normal);
   color: var(--color-text);
-  background-color: var(--color-background);
+  background-color: var(--color-cream-bg);
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
@@ -195,6 +195,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-color: var(--color-cream-bg);
 }
 
 *, *::before, *::after {
@@ -481,10 +482,12 @@ select.form-control {
   display: none;
   min-height: 100vh;
   padding-top: 80px;
+  background-color: var(--color-cream-bg);
 }
 
 .section.active {
   display: block;
+  background-color: var(--color-cream-bg);
 }
 
 .section-subtitle {
@@ -499,6 +502,7 @@ select.form-control {
   background: linear-gradient(135deg, var(--color-bg-1), var(--color-bg-8));
   padding: var(--space-32) 0;
   text-align: center;
+  color: var(--color-dark-chocolate);
 }
 
 .hero-content {
@@ -567,6 +571,7 @@ select.form-control {
 /* Features Section */
 .features-section {
   padding: var(--space-32) 0;
+  background-color: var(--color-cream-bg);
 }
 
 .features-section h2 {
